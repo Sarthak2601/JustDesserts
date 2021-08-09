@@ -1,0 +1,22 @@
+
+CREATE TABLE Dessert(
+    id TEXT NOT NULL PRIMARY KEY,
+    userId TEXT NOT NULL,
+    name TEXT NOT NULL,
+    description TEXT NOT NULL,
+    imageUrl TEXT NOT NULL
+);
+
+CREATE TABLE Review(
+    id TEXT NOT NULL PRIMARY KEY,
+    userId TEXT NOT NULL,
+    desserdId TEXT NOT NULL,
+    text TEXT NOT NULL,
+    rating INTEGER NOT NULL
+);
+
+CREATE TABLE UserState(
+    userId TEXT NOT NULL,
+    token TEXT NOT NULL
+);
+
