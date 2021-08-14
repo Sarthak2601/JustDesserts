@@ -32,4 +32,20 @@ class DessertRepository(apolloProvider: ApolloProvider) : BaseRepository(apolloP
         val response = apolloClient.mutate(DeleteDessertMutation(dessertId)).execute().single()
         return response.data?.deleteDessert
     }
+
+    fun saveFavourite(dessert: Dessert){
+        database.saveDessert(dessert)
+    }
+
+    fun removeFavourite(dessertId: String){
+        database.deleteDessert(dessertId)
+    }
+
+    fun updateFavourite(dessert: Dessert){
+        database.updateDessert(dessert)
+    }
+
+    fun getFavouriteDessert(dessertId: String): Dessert? = database.getDessertById(dessertId)
+
+    fun getFavouriteDesserts(): List<Dessert> = database.getDesserts()
 }
